@@ -29,7 +29,15 @@ namespace PracticaInteracciones
 
         private void sldPrcPrp_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            lblPrcPrp.Text = sldPrcPrp.Value.ToString();
+            lblPrcPrp.Text = ((int)(sldPrcPrp.Value)).ToString() + "%";
+
+            float cuenta = float.Parse(txtCuenta.Text);
+
+            float montoPropina = (int)(sldPrcPrp.Value) / 100.0f * cuenta;
+
+            float totalAPagar = cuenta + montoPropina;
+
+            lblTotalConPrp.Text = totalAPagar.ToString();
         }
     }
 }
